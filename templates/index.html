@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>TÜBİTAK Karar Takip Sistemi</h2>
+    <p>
+        Koordinasyon kararlarının dijital ortamda kaydedilmesi, aranması ve güncellenmesi için
+        hazırlanmış yönetim arayüzü.
+    </p>
+
+    <div class="hero-actions">
+        <a href="{{ url_for('ekle') }}" class="btn btn-primary">Yeni Karar Ekle</a>
+        <a href="{{ url_for('liste') }}" class="btn btn-secondary">Karar Ara / Listele</a>
+    </div>
+</section>
+
+<section class="card-grid">
+    <div class="info-card">
+        <h3>Veri Girişi</h3>
+        <p>Yıl, no, madde, karar, ilgili doküman, değiştirilen karar ve güncel karar bilgileri girilir.</p>
+    </div>
+
+    <div class="info-card">
+        <h3>Arama ve Sorgulama</h3>
+        <p>Anahtar kelime, karar metni, madde veya yıl bilgisi ile hızlı filtreleme yapılır.</p>
+    </div>
+
+    <div class="info-card">
+        <h3>Revizyon Takibi</h3>
+        <p>Değiştirilen karar ve güncel karar alanları sayesinde karar geçmişi yönetilir.</p>
+    </div>
+</section>
+{% endblock %}

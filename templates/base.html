@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TÜBİTAK Karar Sistemi{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <h1 class="logo">TÜBİTAK Koordinasyon Kararları</h1>
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Ana Sayfa</a>
+                <a href="{{ url_for('ekle') }}">Yeni Kayıt</a>
+                <a href="{{ url_for('liste') }}">Arama / Listeleme</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

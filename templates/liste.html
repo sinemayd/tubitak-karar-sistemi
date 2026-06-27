@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Karar Arama ve Listeleme{% endblock %}
+
+{% block content %}
+<section class="panel panel-tubitak-blue">
+    <div class="panel-header">
+        <h2>Arama ve Sorgulama Modülü</h2>
+        <p>Kararlar içinde filtreleme ve listeleme</p>
+    </div>
+
+    <form method="GET" class="search-box">
+        <div class="grid-3">
+            <div class="form-group">
+                <label>Aranacak Kelime</label>
+                <input type="text" name="arama" value="{{ arama }}" placeholder="Geçmiş kararlarda arama yapın...">
+            </div>
+
+            <div class="form-group">
+                <label>Yıl</label>
+                <input type="text" name="yil" value="{{ yil }}" placeholder="Örn: 2023">
+            </div>
+
+            <div class="form-group">
+                <label>Madde</label>
+                <input type="text" name="madde" value="{{ madde }}" placeholder="Örn: 5">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Ara</button>
+            <a href="{{ url_for('liste') }}" class="btn btn-light">Temizle</a>
+        </div>
+    </form>
+
+    <div class="results-area">
+        {% if kararlar %}
+            {% for karar in kararlar %}
+                <div class="result-card">
+                    <div class="result-meta">
+                        <div><strong>Yıl</strong><span>{{ karar['yil'] }}</span></div>
+                        <div><strong>Madde</strong><span>{{ karar['madde'] }}</span></div>
+                        <div><strong>Karar No</strong><span>{{ karar['no'] }}</span></div>
+                        <div><strong>Anahtar Kelime</strong><span>{{ karar['anahtar_kelime'] }}</span></div>
+                    </div>
+
+                    <div class="result-content">
+                        <h3>Karar</h3>
+                        <p>{{ karar['karar'][:250] }}{% if karar['karar'] and karar['karar']|length > 250 %}...{% endif %}</p>
+
+                        <div class="result-footer">
+                            <small>Son Güncelleme: {{ karar['guncelleme_tarihi'] }}</small>
+                            <div class="action-buttons" style="display: flex; gap: 10px;">
+                                <a href="{{ url_for('guncelle', id=karar['id']) }}" class="btn btn-secondary">Güncelle</a>
+                                <form action="{{ url_for('sil', id=karar['id']) }}" method="POST" onsubmit="return confirm('Bu kararı silmek istediğinize emin misiniz?');">
+                                    <button type="submit" class="btn btn-danger">Sil</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-box">
+                <p>Kayıt bulunamadı.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

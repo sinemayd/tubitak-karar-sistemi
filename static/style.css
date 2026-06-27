@@ -1,0 +1,352 @@
+/* Temel Sıfırlama */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #f6f8fc 0%, #eef4fb 100%);
+    color: #1d2b44;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Üst Menü (Topbar) */
+.topbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dbe4f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 28px;
+    color: #002855; /* TÜBİTAK Koyu Lacivert */
+    font-weight: 700;
+}
+
+.nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #004B87; /* TÜBİTAK Kurumsal Mavi */
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: #e8f0fb;
+    color: #002855;
+}
+
+/* Sayfa İçerik Alanı */
+.page-content {
+    padding: 40px 0 60px;
+}
+
+/* Ana Sayfa Karşılama Bölümü (Hero) */
+.hero {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 42px;
+    margin-bottom: 14px;
+    color: #002855;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #53627c;
+    max-width: 850px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Bilgi Kartları (Grid Yapısı) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid #004B87; /* Kartların üstüne ince kurumsal çizgi */
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    color: #002855;
+}
+
+.info-card p {
+    color: #5f6e85;
+    line-height: 1.7;
+}
+
+/* Paneller ve TÜBİTAK Kurumsal Renk Kenarlığı */
+.panel {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 3px solid transparent;
+}
+
+.panel-tubitak-blue {
+    border-color: #004B87; /* Tüm sayfalarda eşitlediğimiz kurumsal mavi kenarlık */
+}
+
+.panel-header {
+    margin-bottom: 25px;
+}
+
+.panel-header h2 {
+    font-size: 34px;
+    color: #002855;
+    margin-bottom: 8px;
+}
+
+.panel-header p {
+    color: #5f6e85;
+    font-size: 17px;
+}
+
+/* Form Tasarımı */
+.form-layout,
+.search-box {
+    background: #f8fbff;
+    border: 1px solid #d9e4f2;
+    border-radius: 22px;
+    padding: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #203556;
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid #b9c8dc;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 18px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    color: #1e2a3a;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #004B87;
+    box-shadow: 0 0 0 4px rgba(0, 75, 135, 0.12);
+}
+
+/* Butonlar */
+.form-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.btn {
+    text-decoration: none;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 22px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.btn-primary {
+    background: #004B87; /* Ana Butonlar: TÜBİTAK Mavisi */
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #002855; /* Hover: TÜBİTAK Lacivirdi */
+}
+
+.btn-secondary {
+    background: #53627c; /* İkincil İşlemler (Güncelle/Geri Dön) */
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #3b485c;
+}
+
+.btn-light {
+    background: #edf3fb;
+    color: #004B87;
+}
+
+.btn-light:hover {
+    background: #dfeaf8;
+}
+
+.btn-danger {
+    background: #d9383a; /* Listeleme sayfası Sil butonu için */
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: #b52a2c;
+}
+
+/* Sonuç Kartları (Arama / Listeleme Bölümü) */
+.results-area {
+    margin-top: 30px;
+    display: grid;
+    gap: 18px;
+}
+
+.result-card {
+    background: #ffffff;
+    border: 1px solid #dce6f2;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.result-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6edf7;
+}
+
+.result-meta div {
+    background: #f8fbff;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+.result-meta strong {
+    display: block;
+    font-size: 13px;
+    color: #5d6f89;
+    margin-bottom: 6px;
+}
+
+.result-meta span {
+    font-weight: 700;
+    color: #004B87;
+}
+
+.result-content h3 {
+    margin-bottom: 10px;
+    color: #002855;
+}
+
+.result-content p {
+    color: #43546b;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.result-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.result-footer small {
+    color: #6b7a90;
+}
+
+.empty-box {
+    background: #ffffff;
+    border: 1px dashed #c5d4e8;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    color: #60708a;
+}
+
+/* Mobil / Tablet Uyumluluk (Responsive) */
+@media (max-width: 992px) {
+    .grid-2,
+    .grid-3,
+    .card-grid,
+    .result-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    .hero h2 {
+        font-size: 32px;
+    }
+}

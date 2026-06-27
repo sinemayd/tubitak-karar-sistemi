@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Yeni Karar Ekle{% endblock %}
+
+{% block content %}
+<section class="panel panel-tubitak-blue">
+    <div class="panel-header">
+        <h2>Veri Girişi Modülü</h2>
+        <p>Karar Kayıt Formu</p>
+    </div>
+
+    <form method="POST" class="form-layout">
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Yıl</label>
+                <input type="text" name="yil" placeholder="Örn: 2024" required>
+            </div>
+
+            <div class="form-group">
+                <label>No</label>
+                <input type="text" name="no" placeholder="Karar numarası" required>
+            </div>
+
+            <div class="form-group">
+                <label>Madde</label>
+                <input type="text" name="madde" placeholder="Madde referansı">
+            </div>
+
+            <div class="form-group">
+                <label>Anahtar Kelime</label>
+                <input type="text" name="anahtar_kelime" placeholder="Örn: bütçe, PTİ, süre uzatma">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Karar</label>
+            <textarea name="karar" rows="6" placeholder="Karar metnini giriniz"></textarea>
+        </div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Değiştirilen Karar</label>
+                <textarea name="degistirilen_karar" rows="5" placeholder="Varsa eski karar bilgisi"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Güncel Karar</label>
+                <textarea name="guncel_karar" rows="5" placeholder="Güncel karar bilgisi"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>İlgili Doküman</label>
+            <input type="text" name="ilgili_dokuman" placeholder="Dosya adı, bağlantı veya referans">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a href="{{ url_for('liste') }}" class="btn btn-light">Listeye Git</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

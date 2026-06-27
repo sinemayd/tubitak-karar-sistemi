@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Karar Güncelle{% endblock %}
+
+{% block content %}
+<section class="panel panel-tubitak-blue">
+    <div class="panel-header">
+        <h2>Karar Güncelleme</h2>
+        <p>Seçilen kaydın bilgilerini düzenleyin</p>
+    </div>
+
+    <form method="POST" class="form-layout">
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Yıl</label>
+                <input type="text" name="yil" value="{{ karar['yil'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>No</label>
+                <input type="text" name="no" value="{{ karar['no'] }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Madde</label>
+                <input type="text" name="madde" value="{{ karar['madde'] }}">
+            </div>
+
+            <div class="form-group">
+                <label>Anahtar Kelime</label>
+                <input type="text" name="anahtar_kelime" value="{{ karar['anahtar_kelime'] }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Karar</label>
+            <textarea name="karar" rows="6">{{ karar['karar'] }}</textarea>
+        </div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Değiştirilen Karar</label>
+                <textarea name="degistirilen_karar" rows="5">{{ karar['degistirilen_karar'] }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Güncel Karar</label>
+                <textarea name="guncel_karar" rows="5">{{ karar['guncel_karar'] }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>İlgili Doküman</label>
+            <input type="text" name="ilgili_dokuman" value="{{ karar['ilgili_dokuman'] }}">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Güncellemeyi Kaydet</button>
+            <a href="{{ url_for('liste') }}" class="btn btn-light">Geri Dön</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
